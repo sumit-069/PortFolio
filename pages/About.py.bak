@@ -1,0 +1,108 @@
+import streamlit as st
+import json
+from pathlib import Path
+from utils.helper import load_css, show_image
+
+st.set_page_config(page_title="About | Sumit Kumar Bajpai", layout="wide")
+
+load_css()
+
+DATA = Path("data/project.json")
+
+profile = {}
+if DATA.exists():
+    with open(DATA, "r", encoding="utf-8") as f:
+        profile = json.load(f).get("owner", {})
+
+st.title("👨 About Me")
+st.markdown("---")
+
+left, right = st.columns([2, 1])
+
+with left:
+    st.markdown(f"""
+# {profile.get("name","Sumit Kumar Bajpai")}
+
+### {profile.get("title","AI Engineer")}
+
+I am a Information Technology undergraduate passionate about building
+AI-powered software using **Machine Learning**, **Computer Vision**,
+**Large Language Models (LLMs)** and **Agentic AI**.
+
+My goal is to build intelligent systems that automate software
+development, improve productivity, and solve real-world problems.
+
+I enjoy designing AI agents, developing end-to-end ML applications,
+and deploying production-ready Python solutions.
+""")
+
+with right:
+    show_image("profile.png")
+
+st.markdown("## 🎓 Education")
+
+st.info("""
+**Kamla Nehru Institute of Technology, Sultanpur**
+
+**Bachelor of Technology (Computer Science & Engineering)**
+
+**CGPA:** 8.7/10
+""")
+
+st.markdown("## 🚀 What I Work With")
+
+c1, c2, c3 = st.columns(3)
+
+with c1:
+    st.success("🐍 Python")
+    st.success("⚡ FastAPI")
+    st.success("🖥️ Streamlit")
+
+with c2:
+    st.info("🧠 LangGraph")
+    st.info("🔗 LangChain")
+    st.info("🤖 LLMs")
+
+with c3:
+    st.warning("👁️ OpenCV")
+    st.warning("📊 Scikit-learn")
+    st.warning("🔥 TensorFlow")
+
+st.markdown("## 💡 Areas of Interest")
+
+st.markdown("""
+- Agentic AI
+- Machine Learning
+- Deep Learning
+- Computer Vision
+- Large Language Models
+- AI Software Engineering
+- Backend Development
+""")
+
+st.markdown("## 📈 Learning Journey")
+
+journey = [
+    ("2024", "Started Programming"),
+    ("2024", "Data Structures & Algorithms"),
+    ("2025", "Machine Learning"),
+    ("2025", "Deep Learning"),
+    ("2025", "Computer Vision"),
+    ("2026", "LangGraph & LLM Applications"),
+    ("Now", "Building AI Software Engineering Platforms"),
+]
+
+for year, event in journey:
+    st.markdown(
+        f"""
+<div class="glass-card">
+<b>{year}</b><br>
+{event}
+</div>
+<br>
+""",
+        unsafe_allow_html=True,
+    )
+
+st.markdown("---")
+st.caption("Always learning, always building 🚀")

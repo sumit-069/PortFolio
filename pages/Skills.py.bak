@@ -1,0 +1,123 @@
+import streamlit as st
+from utils.helper import load_css
+
+st.set_page_config(
+    page_title="Skills | Sumit Kumar Bajpai",
+    page_icon="💻",
+    layout="wide"
+)
+
+load_css()
+
+st.title("💻 Skills & Technologies")
+st.caption("Technologies and tools I use to build AI applications.")
+
+st.markdown("## 👨‍💻 Programming Languages")
+
+lang1, lang2 = st.columns(2)
+
+with lang1:
+    st.progress(95, text="Python")
+    st.progress(80, text="C++")
+    st.progress(70, text="Java")
+
+with lang2:
+    st.progress(75, text="SQL")
+    st.progress(65, text="C")
+    st.progress(85, text="Git")
+
+st.divider()
+
+st.markdown("## 🤖 Machine Learning")
+
+ml1, ml2 = st.columns(2)
+
+with ml1:
+    st.progress(90, text="Scikit-learn")
+    st.progress(88, text="TensorFlow")
+    st.progress(85, text="OpenCV")
+
+with ml2:
+    st.progress(90, text="NumPy")
+    st.progress(90, text="Pandas")
+    st.progress(85, text="XGBoost")
+
+st.divider()
+
+st.markdown("## 🧠 LLM & Agentic AI")
+
+a1, a2 = st.columns(2)
+
+with a1:
+    st.progress(90, text="LangGraph")
+    st.progress(88, text="LangChain")
+    st.progress(85, text="Prompt Engineering")
+
+with a2:
+    st.progress(85, text="FastAPI")
+    st.progress(85, text="Streamlit")
+    st.progress(80, text="Typer")
+
+st.divider()
+
+st.markdown("## ☁️ AI Platforms")
+
+platforms = [
+    "OpenAI",
+    "Gemini",
+    "Groq",
+    "Google Colab",
+    "Jupyter Notebook",
+    "VS Code",
+    "PyPI",
+]
+
+cols = st.columns(3)
+
+for i, item in enumerate(platforms):
+    cols[i % 3].success(item)
+
+st.divider()
+
+st.markdown("## 🎯 Core Expertise")
+
+left, right = st.columns(2)
+
+with left:
+    st.markdown("""
+- Machine Learning
+- Deep Learning
+- Computer Vision
+- AI Software Engineering
+- Data Preprocessing
+- Feature Engineering
+""")
+
+with right:
+    st.markdown("""
+- Agentic AI
+- Large Language Models
+- API Development
+- Backend Development
+- Model Deployment
+- Software Automation
+""")
+
+st.divider()
+
+st.subheader("📈 Learning Roadmap")
+
+roadmap = [
+    "Advanced Agentic AI",
+    "Multi-Agent Systems",
+    "MLOps",
+    "Kubernetes",
+    "AWS",
+    "Distributed AI Systems"
+]
+
+for skill in roadmap:
+    st.checkbox(skill, value=False, disabled=True)
+
+st.markdown("---")
+st.caption("Learning never stops 🚀")

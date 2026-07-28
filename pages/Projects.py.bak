@@ -1,0 +1,99 @@
+import json
+from pathlib import Path
+
+import streamlit as st
+
+from utils.helper import load_css, project_card
+
+st.set_page_config(page_title="Projects | Sumit Kumar Bajpai", page_icon="🚀", layout="wide")
+
+load_css()
+
+st.title("🚀 Featured Projects")
+st.caption("A selection of my AI and Machine Learning projects.")
+
+DATA_FILE = Path("data/project.json")
+
+if not DATA_FILE.exists():
+    st.error("project.json not found inside data/")
+    st.stop()
+
+with open(DATA_FILE, "r", encoding="utf-8") as f:
+    data = json.load(f)
+
+projects = data.get("projects", [])
+
+for project in projects:
+    with st.container():
+        col1, col2 = st.columns([1, 2])
+
+        with col1:
+            image_path = project.get("image", "")
+            if Path(image_path).exists():
+                st.image(image_path, use_container_width=True)
+            else:
+                st.info("Add image: " + image_path)
+
+        with col2:
+            st.subheader(project["title"])
+            st.caption(project.get("subtitle", ""))
+            st.write(project["description"])
+
+            st.markdown("#### 🛠 Tech Stack")
+            tech_cols = st.columns(4)
+            for i, tech in enumerate(project.get("tech_stack", [])):
+                tech_cols[i % 4].success(tech)
+
+            st.markdown("#### ✨ Features")
+            for feature in project.get("features", []):
+                st.markdown(f"- {feature}")
+
+            metrics = project.get("metrics")
+            if metrics:
+                st.markdown("#### 📊 Metrics")
+                mcols = st.columns(len(metrics))
+                for idx, (k, v) in enumerate(metrics.items()):
+                    mcols[idx].metric(k, v)
+
+            b1, b2, b3 = st.columns(3)
+
+            github = project.get("github", "")
+            demo = project.get("demo", "")
+            docs = project.get("documentation", "")
+
+            with b1:
+                if github:
+                    st.link_button("💻 GitHub", github)
+
+            with b2:
+                if demo:
+                    st.link_button("🌐 Live Demo", demo)
+                else:
+                    st.button("🌐 Live Demo", disabled=True, key=f"demo_{project['id']}")
+
+            with b3:
+                if docs:
+                    st.link_button("📚 Docs", docs)
+                else:
+                    st.button("📚 Docs", disabled=True, key=f"docs_{project['id']}")
+
+        st.divider()
+
+st.markdown("## 🔥 Current Focus")
+
+c1, c2, c3 = st.columns(3)
+
+with c1:
+    st.info("🤖 Agentic AI")
+    st.write("Building autonomous AI systems using LangGraph.")
+
+with c2:
+    st.info("🧠 LLM Applications")
+    st.write("Developing intelligent assistants powered by modern LLMs.")
+
+with c3:
+    st.info("⚡ AI Software Engineering")
+    st.write("Creating tools that automate software development workflows.")
+
+st.markdown("---")
+st.caption("More exciting AI projects coming soon 🚀")

@@ -1,0 +1,140 @@
+{
+    "owner": {
+        "name": "Sumit Kumar Bajpai",
+        "title": "AI Engineer | Machine Learning | Agentic AI | Computer Vision",
+        "email": "bsushil435@gmail.com",
+        "github": "https://github.com/sumit-069",
+        "linkedin": "https://www.linkedin.com/in/sumit-kumar-bajpai-8ab2452bb/",
+        "leetcode": "https://leetcode.com/",
+        "codechef": "https://www.codechef.com/",
+        "resume": "assets/resume.pdf",
+        "profile_image": "assets/profile.png"
+    },
+    "projects": [
+        {
+            "id": 1,
+            "title": "Annukriti",
+            "subtitle": "AI Software Engineer CLI",
+            "image": "assets/annukriti.png",
+            "description": "An AI-powered Python CLI package published on PyPI that assists developers with AI-driven project generation, code debugging, code explanation, and software engineering workflows using natural language. Built with a modular agent-based architecture.",
+            "tech_stack": [
+                "Python",
+                "LangGraph",
+                "LangChain",
+                "FastAPI",
+                "Typer",
+                "Groq",
+                "Gemini",
+                "OpenAI"
+            ],
+            "features": [
+                "AI Website/Project Generation",
+                "Error Debugger & Traceback Analysis",
+                "Interactive Chat & Explanations",
+                "CLI Interface & Modular Agents",
+                "Multiple LLM Providers integration"
+            ],
+            "github": "https://github.com/sumit-069/Annukriti",
+            "demo": "https://pypi.org/project/Annukriti/",
+            "documentation": "https://pypi.org/project/Annukriti/",
+            "status": "Completed"
+        },
+        {
+            "id": 2,
+            "title": "SkyHydra",
+            "subtitle": "AI Software Engineer Platform",
+            "image": "assets/skyhydra.png",
+            "description": "A multi-agent AI platform capable of generating software requirements, architecture, backend, frontend, database design, testing, and documentation.",
+            "tech_stack": [
+                "Python",
+                "LangGraph",
+                "FastAPI",
+                "LLMs",
+                "Streamlit"
+            ],
+            "features": [
+                "Requirement Analysis",
+                "Architecture Generator",
+                "Backend Generator",
+                "Frontend Generator",
+                "Database Design",
+                "Testing",
+                "Documentation"
+            ],
+            "github": "https://github.com/sumit-069",
+            "demo": "https://skyhydra.onrender.com/",
+            "status": "Completed"
+        },
+        {
+            "id": 3,
+            "title": "AI-Based Blood Pressure Prediction",
+            "subtitle": "Computer Vision + Machine Learning",
+            "image": "assets/bp.png",
+            "description": "Predicts systolic and diastolic blood pressure along with heart rate using finger PPG signals extracted from smartphone videos using OpenCV and advanced signal processing techniques.",
+            "tech_stack": [
+                "Python",
+                "OpenCV",
+                "SciPy",
+                "Scikit-learn",
+                "XGBoost",
+                "Streamlit"
+            ],
+            "features": [
+                "PPG Signal Extraction from finger video",
+                "Advanced Signal Processing & Filtering",
+                "Systolic & Diastolic BP Estimation",
+                "Heart Rate Estimation"
+            ],
+            "metrics": {
+                "MAE": "4.7"
+            },
+            "github": "https://github.com/sumit-069/BpPredictionApp",
+            "demo": "https://bppredictionapp-11.onrender.com/",
+            "status": "Completed"
+        },
+        {
+            "id": 4,
+            "title": "Greenovant",
+            "subtitle": "Smart India Hackathon (Internal Round)",
+            "image": "assets/greenovant.png",
+            "description": "An AI model and system built for waste classification to automate eco-friendly sorting and disposal of recyclable and organic waste products.",
+            "tech_stack": [
+                "Python",
+                "TensorFlow",
+                "Keras",
+                "OpenCV",
+                "Streamlit"
+            ],
+            "features": [
+                "Real-time waste classification",
+                "Image recognition & categorization",
+                "User-friendly web UI dashboard"
+            ],
+            "github": "https://github.com/sumit-069/Greenovent",
+            "demo": "",
+            "status": "Completed"
+        },
+        {
+            "id": 5,
+            "title": "Nityotkarsh",
+            "subtitle": "OpenAIxNxtWave (State Level)",
+            "image": "assets/nityotkarsh.png",
+            "description": "An intelligent healthcare model built to analyze patient symptoms and detect potential diseases, assisting users with primary diagnostics using generative AI patterns.",
+            "tech_stack": [
+                "Python",
+                "OpenAI",
+                "FastAPI",
+                "Streamlit",
+                "Prompt Engineering"
+            ],
+            "features": [
+                "Symptom analysis & primary check-up",
+                "Disease recommendation & information",
+                "Interactive conversational healthcare assistant"
+            ],
+            "github": "https://github.com/sumit-069/nitroutkarash",
+            "demo": "",
+            "status": "Completed"
+        }
+    ]
+}

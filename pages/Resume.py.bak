@@ -1,0 +1,74 @@
+import base64
+from pathlib import Path
+
+import streamlit as st
+
+from utils.helper import load_css, resume_download_button
+
+st.set_page_config(
+    page_title="Resume | Sumit Kumar Bajpai",
+    page_icon="📄",
+    layout="wide"
+)
+
+load_css()
+
+st.title("📄 Resume")
+st.caption("Preview and download my latest resume.")
+
+resume_path = Path("assets/resume.pdf")
+
+left, right = st.columns([2,1])
+
+with left:
+    st.markdown("""
+### Professional Summary
+
+- AI Engineer
+- Machine Learning Enthusiast
+- Computer Vision Developer
+- Agentic AI Builder
+- Python Developer
+
+Interested in building intelligent AI systems using
+LangGraph, LLMs, FastAPI and modern Machine Learning.
+""")
+
+with right:
+    resume_download_button("resume.pdf")
+
+st.divider()
+
+st.subheader("📑 Resume Preview")
+
+if resume_path.exists():
+    with open(resume_path, "rb") as pdf:
+        pdf_bytes = pdf.read()
+
+    pdf_base64 = base64.b64encode(pdf_bytes).decode("utf-8")
+
+    pdf_display = f"""
+    <iframe
+        src="data:application/pdf;base64,{pdf_base64}"
+        width="100%"
+        height="900"
+        type="application/pdf"
+        style="border:none;border-radius:12px;">
+    </iframe>
+    """
+
+    st.markdown(pdf_display, unsafe_allow_html=True)
+
+else:
+    st.warning("Place your resume.pdf inside the assets folder.")
+
+st.divider()
+
+c1, c2, c3 = st.columns(3)
+
+c1.metric("Education", "B.Tech CSE")
+c2.metric("CGPA", "8.7")
+c3.metric("Projects", "3")
+
+st.markdown("---")
+st.caption("Thank you for viewing my resume.")

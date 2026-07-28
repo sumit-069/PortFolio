@@ -1,0 +1,76 @@
+import streamlit as st
+from utils.helper import load_css
+
+st.set_page_config(
+    page_title="Contact | Sumit Kumar Bajpai",
+    page_icon="📬",
+    layout="wide"
+)
+
+load_css()
+
+st.title("📬 Contact Me")
+st.caption("Let's connect and build something amazing together!")
+
+left, right = st.columns([2, 1])
+
+with left:
+    st.markdown("## Send a Message")
+
+    with st.form("contact_form", clear_on_submit=True):
+        name = st.text_input("Your Name")
+        email = st.text_input("Your Email")
+        subject = st.text_input("Subject")
+        message = st.text_area("Message", height=180)
+
+        submitted = st.form_submit_button("🚀 Send Message")
+
+        if submitted:
+            if not name or not email or not message:
+                st.error("Please fill all required fields.")
+            else:
+                st.success(
+                    "Thank you! This demo form received your message. "
+                    "Connect via email or integrate with FormSubmit, EmailJS, Supabase, or Google Sheets."
+                )
+
+with right:
+    st.markdown("## 👨‍💻 Contact Information")
+
+    st.info("**📧 Email**\n\nbsushil435@gmail.com")
+    st.info("**📍 Location**\n\nUttar Pradesh, India")
+    st.info("**💼 Availability**\n\nOpen to AI/ML Internships")
+
+    st.markdown("### 🌐 Profiles")
+
+    st.link_button("🐙 GitHub", "https://github.com/sumit-069")
+    st.link_button(
+        "💼 LinkedIn",
+        "https://www.linkedin.com/in/sumit-kumar-bajpai-8ab2452bb/"
+    )
+    st.link_button("💻 LeetCode", "https://leetcode.com/")
+    st.link_button("🏆 CodeChef", "https://www.codechef.com/")
+
+st.divider()
+
+st.subheader("Why Work With Me?")
+
+c1, c2, c3 = st.columns(3)
+
+with c1:
+    st.metric("AI Projects", "3")
+    st.write("Hands-on experience building AI products.")
+
+with c2:
+    st.metric("Primary Language", "Python")
+    st.write("Strong foundation in Python development.")
+
+with c3:
+    st.metric("Focus", "Agentic AI")
+    st.write("Building intelligent software engineering systems.")
+
+st.markdown("---")
+st.markdown(
+    "<center>Made with ❤️ using <b>Python</b> & <b>Streamlit</b></center>",
+    unsafe_allow_html=True,
+)
