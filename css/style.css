@@ -600,3 +600,14 @@ footer {
     color: var(--text-secondary) !important;
     font-weight: 500;
 }
+header {
+    visibility: hidden;
+}
+
+#MainMenu {
+    visibility: hidden;
+}
+
+footer {
+    visibility: hidden;
+}
